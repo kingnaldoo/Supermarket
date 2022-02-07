@@ -1,9 +1,11 @@
 public class Venda {
-    private int id;
+    private static int id;
     private String produto;
+    private boolean pago;
     
     public Venda(String produto) {
         this.produto = produto;
+        incrementId();
     }
 
     public String getProduto() {
@@ -12,5 +14,17 @@ public class Venda {
 
     public void setProduto(String produto) {
         this.produto = produto;
+    }
+
+    public boolean isPago() {
+        return pago;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
+
+    public static int incrementId() {
+        return id++;
     }
 }

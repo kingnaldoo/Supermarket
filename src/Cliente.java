@@ -38,6 +38,8 @@ public class Cliente implements IPessoa {
     }
 
     public String fazerPedido(String pedido) {
+        Venda venda = new Venda("Papel Higiênico");
+        venda.setPago(true);
         return "Pedido feito";
     }
 }
