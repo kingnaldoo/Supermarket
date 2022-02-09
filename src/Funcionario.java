@@ -1,7 +1,9 @@
 public class Funcionario implements IPessoa {
     private String nome;
     private String cpf;
+    private float dinheiroRecebido;
     private String localDeTrabalho;
+    private boolean presente = false;
 
     public Funcionario(String nome, String cpf, String localDeTrabalho) {
         this.nome = nome;
@@ -33,15 +35,27 @@ public class Funcionario implements IPessoa {
         return localDeTrabalho;
     }
 
-
-
     public void setLocalDeTrabalho(String localDeTrabalho) {
         this.localDeTrabalho = localDeTrabalho;
     }
 
+    public float dinheiroRecebido() {
+        return dinheiroRecebido;
+    }
 
+    public void setDinheiroRecebido(float dinheiroRecebido) {
+        this.dinheiroRecebido = dinheiroRecebido;
+    }
 
-    public boolean baterPonto() {
-        return true;
+    public boolean isPresente() {
+        return presente;
+    }
+
+    public void setPresente(boolean presente) {
+        this.presente = presente;
+    }
+
+    public void baterPonto() {
+        setPresente(true);
     }
 }

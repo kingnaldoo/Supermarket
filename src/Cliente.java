@@ -2,11 +2,13 @@ public class Cliente implements IPessoa {
     private String nome;
     private String cpf;
     private String endereco;
+    private float carteira;
 
-    public Cliente(String nome, String cpf, String endereco) {
+    public Cliente(String nome, String cpf, String endereco, float carteira) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
+        this.carteira = carteira;
     }
 
     @Override
@@ -37,9 +39,13 @@ public class Cliente implements IPessoa {
         this.endereco = endereco;
     }
 
-    public String fazerPedido(String pedido) {
-        Venda venda = new Venda("Papel Higiênico");
-        venda.setPago(true);
-        return "Pedido feito";
+    public float getCarteira() {
+        return carteira;
     }
+
+    public void setCarteira(float carteira) {
+        this.carteira = carteira;
+    }
+
+    
 }
