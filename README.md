@@ -6,9 +6,10 @@ Supermarket
 </p>
 
 ## 🚀 DESCRIÇÃO
-Um mini aplicação de um sistema de supermercado.
+🛒 Uma mini aplicação de um sistema de supermercado, construido para a cadeira de POO.
 
-##  COMO UTILIZAR
+##  ❗ INFORMAÇÕES
+Equipe: Reinaldo da Silva Nascimento (499888), Armildo Hermeson Rocha Bezerra (408352) e Victor Fernando Silva (427968)
 
-##  INFORMAÇÕES
-
+##  ❗ COMO EXECUTAR?
+Execute o arquivo App.java
