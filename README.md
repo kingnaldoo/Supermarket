@@ -11,5 +11,5 @@ Supermarket
 ##  ❗ INFORMAÇÕES
 Equipe: Reinaldo da Silva Nascimento (499888), Armildo Hermeson Rocha Bezerra (408352) e Victor Fernando Silva (427968)
 
-##  ❗ COMO EXECUTAR?
-Execute o arquivo App.java
+##  👾 COMO EXECUTAR?
+Execute o arquivo <code>App.java</code>
