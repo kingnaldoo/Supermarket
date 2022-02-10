@@ -11,22 +11,18 @@ public class Funcionario implements IPessoa {
         this.localDeTrabalho = localDeTrabalho;
     }
 
-    @Override
     public String getNome() {
         return nome;
     }
 
-    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    @Override
     public String getCpf() {
         return cpf;
     }
 
-    @Override
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }

@@ -1,15 +1,24 @@
-public class Estoque {
-    private int quantidadeDeProdutos;
+public class Estoque implements IEstoque {
+    Produto[] produto = {
+        new Produto("Danone", 3, 10),
+        new Produto("Pneu", 10, 200)
+    };
 
-    public Estoque(int quantidadeDeProdutos) {
-        this.quantidadeDeProdutos = quantidadeDeProdutos;
+    public void aumentarEstoque(String nome, int quantidade, String estabelecimento) {
+        for (int i = 0; i < produto.length; i++) {
+            if(produto[i].getNome() == nome) {
+                produto[i].setQuantidadeDisponivel(produto[i].getQuantidadeDisponivel()+quantidade);
+                System.out.println("O estoque de "+nome+" foi aumentado em "+quantidade+" unidades pelo fornecedor "+estabelecimento);
+            }
+        }
     }
-
-    public int getQuantidadeDeProdutos() {
-        return quantidadeDeProdutos;
-    }
-
-    public void setQuantidadeDeProdutos(int quantidadeDeProdutos) {
-        this.quantidadeDeProdutos = quantidadeDeProdutos;
+    
+    public void reduzirEstoque(String nome, int quantidade, String funcionario) {
+        for (int i = 0; i < produto.length; i++) {
+            if (produto[i].getNome() == nome) {
+                produto[i].setQuantidadeDisponivel(produto[i].getQuantidadeDisponivel() - quantidade);
+                System.out.println("O estoque de " + nome + " foi reduzido em " + quantidade + " unidades pelo funcionario "+funcionario);
+            }
+        }
     }
 }

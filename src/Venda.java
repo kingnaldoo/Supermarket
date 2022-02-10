@@ -1,24 +1,36 @@
+import java.util.UUID;
+
 public class Venda {
-    private static int id;
+    private static UUID uuid = UUID.randomUUID();
     private String produto;
     private boolean pago;
     
     public Venda(String produto, float preco, Cliente cliente, Funcionario funcionario)  {
-        setProduto(produto);
-        if(cliente.getCarteira() == preco) {
-            incrementId();
-            cliente.setCarteira(0);
-            if(funcionario.isPresente()) {
+        Estoque estoque = new Estoque();
+
+        if (funcionario.isPresente()) {
+            setProduto(produto);
+            
+            if(cliente.getCarteira() == preco) {
+                cliente.setCarteira(0);
                 funcionario.setDinheiroRecebido(preco);
+                estoque.reduzirEstoque(produto, 1, funcionario.getNome());
+                setPago(true);
+
+                System.out.println("Compra efetuada com sucesso.");
+            } else if(cliente.getCarteira() > preco) {
+                float troco = cliente.getCarteira()-preco;
+
+                cliente.setCarteira(troco);
+                estoque.reduzirEstoque(produto, 1, funcionario.getNome());
+                setPago(true);
+                
+                System.out.println("Compra efetuada com sucesso. Seu troco é R$"+ troco);
+            } else {
+                System.out.println("Compra não efetuada. Saldo insuficiente.");
             }
-            setPago(true);
-            System.out.println("Compra efetuada com sucesso.");
-        } else if(cliente.getCarteira() > preco) {
-            float troco = cliente.getCarteira()-preco;
-            cliente.setCarteira(troco);
-            System.out.println("Compra efetuada com sucesso. Seu troco é R$"+ troco);
         } else {
-            System.out.println("Compra não efetuada. Saldo insuficiente.");
+            System.out.println("Não foi possível efetuar a compra. Funcionário ausente");
         }
     }
 
@@ -38,7 +50,7 @@ public class Venda {
         this.pago = pago;
     }
 
-    public static int incrementId() {
-        return id++;
+    public static UUID getUuid() {
+        return uuid;
     }
 }

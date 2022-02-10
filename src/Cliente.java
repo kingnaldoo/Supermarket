@@ -2,7 +2,7 @@ public class Cliente implements IPessoa {
     private String nome;
     private String cpf;
     private String endereco;
-    private float carteira;
+    protected float carteira;
 
     public Cliente(String nome, String cpf, String endereco, float carteira) {
         this.nome = nome;
@@ -11,22 +11,18 @@ public class Cliente implements IPessoa {
         this.carteira = carteira;
     }
 
-    @Override
     public String getNome() {
         return nome;
     }
 
-    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    @Override
     public String getCpf() {
         return cpf;
     }
 
-    @Override
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
